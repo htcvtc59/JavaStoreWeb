@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <!DOCTYPE urlrewrite PUBLIC "-//tuckey.org//DTD UrlRewrite 3.2//EN"
+ "http://tuckey.org/res/dtds/urlrewrite3.2.dtd">
+<urlrewrite>
+    <rule>
+        <name>Domain Name Check</name>
+        <condition name="host" operator="notequal">localhost:8084</condition>
+        <from>^(.*)$</from>
+        <to type="redirect">http://localhost:8084/JStore/$1</to>
+    </rule>
+    
+    <!--    <rule>
+        <from>/trang-chu</from>
+        <to type="redirect" >%{context-path}/trang-chu</to>
+    </rule>-->
+    
+    
+    <rule>
+        <from>^/admin/tai_khoan/([a-z]+)$</from>
+        <to type="redirect">%{context-path}/admin/bang_tai_khoan?action=$1</to>
+    </rule>
+    
+    <rule>
+        <from>^/admin/tai_khoan/([a-z]+)/([0-9]+)$</from>
+        <to type="redirect">%{context-path}/admin/bang_tai_khoan?action=$1&amp;id=$2</to>
+    </rule>
+    
+    <rule>
+        <from>^/admin/the_loai/([a-z]+)$</from>
+        <to type="redirect">%{context-path}/admin/bang_the_loai?action=$1</to>
+    </rule>
+    
+    <rule>
+        <from>^/admin/the_loai/([a-z]+)/([0-9]+)$</from>
+        <to type="redirect">%{context-path}/admin/bang_the_loai?action=$1&amp;id=$2</to>
+    </rule>
+    
+    <rule>
+        <from>^/admin/san_pham_sp/([a-z]+)$</from>
+        <to type="redirect">%{context-path}/admin/bang_san_pham?action=$1</to>
+    </rule>
+    
+    <rule>
+        <from>^/admin/san_pham_sp/([a-z]+)/([0-9]+)$</from>
+        <to type="redirect">%{context-path}/admin/bang_san_pham?action=$1&amp;id=$2</to>
+    </rule>
+    
+    <rule>
+        <from>^/admin/san_pham_sp_create/([a-z]+)$</from>
+        <to type="redirect">%{context-path}/admin/bang_the_loai?action=$1</to>
+    </rule>
+    
+    <rule>
+        <from>^/admin/san_pham_sp_update/([a-z]+)/([0-9]+)$</from>
+        <to type="redirect">%{context-path}/admin/bang_the_loai?action=$1&amp;id=$2</to>
+    </rule>
+    
+    
+    <rule>
+        <from>^/admin/quang_cao/([a-z]+)$</from>
+        <to type="redirect">%{context-path}/admin/bang_quang_cao?action=$1</to>
+    </rule>
+    
+    <rule>
+        <from>^/admin/quang_cao/([a-z]+)/([0-9]+)$</from>
+        <to type="redirect">%{context-path}/admin/bang_quang_cao?action=$1&amp;id=$2</to>
+    </rule>
+    
+    <rule>
+        <from>^/admin/anh_show/([a-z]+)$</from>
+        <to type="redirect">%{context-path}/admin/bang_anh_show?action=$1</to>
+    </rule>
+    
+    <rule>
+        <from>^/admin/anh_show/([a-z]+)/([0-9]+)$</from>
+        <to type="redirect">%{context-path}/admin/bang_anh_show?action=$1&amp;id=$2</to>
+    </rule>
+    
+    
+    <rule>
+        <from>^/admin/tk_nguoi_dung/([a-z]+)$</from>
+        <to type="redirect">%{context-path}/admin/tai_khoan_nguoidung?action=$1</to>
+    </rule>
+    
+    <rule>
+        <from>^/admin/tk_nguoi_dung/([a-z]+)/([0-9]+)$</from>
+        <to type="redirect">%{context-path}/admin/tai_khoan_nguoidung?action=$1&amp;id=$2</to>
+    </rule>
+    
+    
+    
+    <rule enabled="true">
+        <name>San pham theo the loai</name>
+        <condition type="parameter" name="gg"></condition>
+        <from>^/(.*).html(.*)$</from>
+        <to type="permanent-redirect" last="true">%{context-path}/sanphamtheoloai?gg=%{parameter:gg}</to>
+    </rule>
+    
+    <rule>
+        <from>^/checkout.html$</from>
+        <to type="redirect">%{context-path}/gio_hang_san_pham</to>
+    </rule>
+    <!--thanh_toan-->
+   
+</urlrewrite>

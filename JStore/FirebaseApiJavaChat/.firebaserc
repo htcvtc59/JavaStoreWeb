@@ -1,0 +1,7 @@
+{
+  "projects": {
+    "e.g. staging": "jstorejavachat",
+    "e.g staging": "jstorejavachat",
+    "default": "jstorejavachat"
+  }
+}
